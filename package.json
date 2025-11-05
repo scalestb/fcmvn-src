@@ -1,0 +1,23 @@
+{
+  "name": "fcmvn-nuxt3-proto",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "nuxt": "^3.13.2"
+  },
+  "devDependencies": {
+    "sass": "^1.79.4",
+    "sass-embedded": "^1.79.4",
+    "typescript": "^5.6.3"
+  }
+}

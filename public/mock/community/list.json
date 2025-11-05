@@ -1,0 +1,19 @@
+{
+  "communities": [
+    {
+      "name": "FC Mobile Vietnam",
+      "platform": "Facebook Group",
+      "link": "https://www.facebook.com/EASFCMOBILEVN"
+    },
+    {
+      "name": "Discord Chiến Thuật",
+      "platform": "Discord",
+      "link": "https://discord.com/invite/example"
+    },
+    {
+      "name": "Zalo Hội Người Chơi",
+      "platform": "Zalo",
+      "link": "https://zalo.me/example"
+    }
+  ]
+}

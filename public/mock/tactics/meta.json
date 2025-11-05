@@ -1,0 +1,61 @@
+{
+  "meta": [
+    {
+      "formation": "4-2-3-1",
+      "rating": 9,
+      "description": "Cân bằng giữa phòng ngự & tấn công, chuyển trạng thái nhanh."
+    },
+    {
+      "formation": "4-3-3 Holding",
+      "rating": 8,
+      "description": "Kiểm soát tuyến giữa, đánh biên tốc độ."
+    },
+    {
+      "formation": "3-5-2",
+      "rating": 7,
+      "description": "Dày người khu trung tuyến, cần CB chất lượng."
+    }
+  ],
+  "byPosition": [
+    {
+      "position": "GK",
+      "players": [
+        "Donnarumma",
+        "Ederson",
+        "Courtois"
+      ]
+    },
+    {
+      "position": "CB",
+      "players": [
+        "Van Dijk",
+        "Rüdiger",
+        "Dias"
+      ]
+    },
+    {
+      "position": "CDM",
+      "players": [
+        "Kimmich",
+        "Rodri",
+        "Valverde"
+      ]
+    },
+    {
+      "position": "CAM",
+      "players": [
+        "De Bruyne",
+        "Bellingham",
+        "Bernardo"
+      ]
+    },
+    {
+      "position": "ST",
+      "players": [
+        "Haaland",
+        "Mbappé",
+        "Kane"
+      ]
+    }
+  ]
+}

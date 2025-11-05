@@ -1,0 +1,45 @@
+/* Bootstrap core (SCSS) */
+
+/* Bootstrap Icons via CDN class names (optional local import if needed) */
+/* You can also install and import bootstrap-icons CSS here if preferred */
+/* @import "bootstrap-icons/font/bootstrap-icons.css"; */
+
+/* Global tweaks */
+body {
+  background: #0b0f17;
+  color: #e9eef7;
+}
+.navbar {
+  --bs-navbar-padding-y: .6rem;
+}
+footer {
+  color: #6c757d;
+}
+.card {
+  background: #0f1522;
+  border-color: rgba(255,255,255,.08);
+}
+.list-group-item {
+  background: #0f1522;
+  color: #dbe6ff;
+  border-color: rgba(255,255,255,.08);
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  opacity: .9;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 1rem 0 1.25rem;
+}
+.section-title .dot {
+  width: .55rem;
+  height: .55rem;
+  border-radius: 50%;
+  background: #0d6efd;
+  display: inline-block;
+}

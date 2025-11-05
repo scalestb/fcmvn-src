@@ -1,0 +1,38 @@
+{
+  "news": [
+    {
+      "title": "Meta 4-2-3-1 quay lại mạnh mẽ",
+      "source": "fcmobileforum.com"
+    },
+    {
+      "title": "Những cam kết tăng tỉ lệ xG trong gameplay",
+      "source": "renderz.app"
+    },
+    {
+      "title": "Hướng dẫn pressing hiệu quả",
+      "source": "fifamobileguide.com"
+    }
+  ],
+  "affiliates": [
+    {
+      "name": "Áo bóng đá HI FPT — 220k",
+      "link": "https://shopee.vn",
+      "image": "https://via.placeholder.com/400x240?text=Jersey"
+    },
+    {
+      "name": "Găng tay thủ môn",
+      "link": "https://tiktok.com",
+      "image": "https://via.placeholder.com/400x240?text=Gloves"
+    },
+    {
+      "name": "Bóng đá size 5",
+      "link": "https://shopee.vn",
+      "image": "https://via.placeholder.com/400x240?text=Ball"
+    },
+    {
+      "name": "Phụ kiện fan",
+      "link": "https://tiktok.com",
+      "image": "https://via.placeholder.com/400x240?text=Fan+Merch"
+    }
+  ]
+}

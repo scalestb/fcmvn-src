@@ -1,0 +1,22 @@
+{
+  "persons": [
+    {
+      "name": "Streamer A",
+      "role": "Streamer",
+      "avatar": "https://via.placeholder.com/512x512?text=A",
+      "link": "https://youtube.com"
+    },
+    {
+      "name": "KOL B",
+      "role": "KOL",
+      "avatar": "https://via.placeholder.com/512x512?text=B",
+      "link": "https://tiktok.com"
+    },
+    {
+      "name": "Top Player C",
+      "role": "Người chơi",
+      "avatar": "https://via.placeholder.com/512x512?text=C",
+      "link": "https://facebook.com"
+    }
+  ]
+}
