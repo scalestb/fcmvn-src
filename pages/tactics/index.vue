@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import HeaderBanner from '~/components/common/HeaderBanner.vue'
+import { useSeo } from '~/composables/useSeo'
+const pageTitle = "Ph\u00e2n t\u00edch chi\u1ebfn thu\u1eadt"
+const pageSubtitle = "Meta & c\u00e1ch v\u1eadn h\u00e0nh t\u1ed1i \u01b0u"
+useSeo().applySeo({ title: pageTitle, description: pageSubtitle || "Meta & c\u00e1ch v\u1eadn h\u00e0nh t\u1ed1i \u01b0u", path: useRoute().fullPath })
+
 import SectionHeader from '~/components/common/SectionHeader.vue'
 import ErrorAlert from '~/components/common/ErrorAlert.vue'
 
@@ -7,6 +13,7 @@ const { data, error, pending } = await api.get('/tactics/meta')
 </script>
 
 <template>
+  <HeaderBanner :title="pageTitle" :subtitle="pageSubtitle" />
   <div>
     <SectionHeader title="Phân tích chiến thuật — Meta" />
     <ErrorAlert :error="error" />

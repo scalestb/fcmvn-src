@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import HeaderBanner from '~/components/common/HeaderBanner.vue'
+import { useSeo } from '~/composables/useSeo'
+const pageTitle = "Trang ch\u1ee7"
+const pageSubtitle = "T\u1ed5ng quan & n\u1ed9i dung n\u1ed5i b\u1eadt"
+useSeo().applySeo({ title: pageTitle, description: pageSubtitle || "T\u1ed5ng quan & n\u1ed9i dung n\u1ed5i b\u1eadt", path: useRoute().fullPath })
+
 import SectionHeader from '~/components/common/SectionHeader.vue'
 import ErrorAlert from '~/components/common/ErrorAlert.vue'
 
@@ -7,6 +13,7 @@ const { data, error, pending } = await api.get('/home')
 </script>
 
 <template>
+  <HeaderBanner :title="pageTitle" :subtitle="pageSubtitle" />
   <div>
     <SectionHeader title="Trang chủ" />
     <ErrorAlert :error="error" />
