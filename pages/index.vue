@@ -13,7 +13,7 @@ const { data, error, pending } = await api.get('/home')
 </script>
 
 <template>
-  <HeaderBanner :title="pageTitle" :subtitle="pageSubtitle" />
+  <HeaderBanner :title="pageTitle" :subtitle="pageSubtitle" image="/imgs/banners/home_01.png" :backgroundCover="true" :height="200" />
   <div>
     <SectionHeader title="Trang chủ" />
     <ErrorAlert :error="error" />
