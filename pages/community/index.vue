@@ -19,7 +19,7 @@ const communities = computed(() => {
 </script>
 
 <template>
-  <HeaderBanner :title="pageTitle" :subtitle="pageSubtitle" />
+  <HeaderBanner :title="pageTitle" :subtitle="pageSubtitle"  image="/imgs/banners/commu_01.png" :backgroundCover="true" :height="200" />
 
   <div>
     <SectionHeader title="Cộng đồng" />

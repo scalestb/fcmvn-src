@@ -1,16 +1,19 @@
 {
   "news": [
     {
-      "title": "Meta 4-2-3-1 quay lại mạnh mẽ",
-      "source": "fcmobileforum.com"
+      "title": "FC MOBILE VN: Hướng Dẫn Thiết Lập 3 Sơ Đồ Chiến Thuật Giả Lập Chuẩn Nhất",
+      "link": "/posts/2",
+      "target": ""
     },
     {
       "title": "Những cam kết tăng tỉ lệ xG trong gameplay",
-      "source": "renderz.app"
+      "link": "/posts/chi-so-xg-tang-hieu-qua",
+      "target": ""
     },
     {
-      "title": "Hướng dẫn pressing hiệu quả",
-      "source": "fifamobileguide.com"
+      "title": "Chiến thuật giả lập phổ biến",
+      "link": "https://renderz.app/meta-squad-builder",
+      "target": "_blank"
     }
   ],
   "affiliates": [

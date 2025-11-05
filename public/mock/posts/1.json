@@ -1,0 +1,17 @@
+{
+  "title": "title bài viết",
+  "tags": [
+    { "key": "chienthuat", "label": "Chiến thuật" },
+    { "key": "cauthu", "label": "Cầu thủ" }
+  ],
+  "date": "2025-11-05 19:00:00",
+  "image": "/banners/tactics-hero.jpg",
+  "content": [
+    { "type": "title", "content": "Tiêu đề mục 1" },
+    { "type": "text",  "content": "Đoạn mô tả nội dung chi tiết..." },
+    { "type": "image", "content": "https://via.placeholder.com/1200x600?text=Hinh+minh+hoa" },
+    { "type": "video", "content": "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+    { "type": "video", "content": "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+    { "type": "redirect", "content": { "label": "Xem thêm tại FC Mobile", "url": "https://example.com" } }
+  ]
+}

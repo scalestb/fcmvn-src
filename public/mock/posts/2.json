@@ -1,0 +1,69 @@
+{
+  "title": "FC MOBILE VN: Hướng Dẫn Thiết Lập 3 Sơ Đồ Chiến Thuật Giả Lập Chuẩn Nhất",
+  "tags": [
+    { "key": "chienthuat", "label": "Chiến thuật" },
+    { "key": "gialap", "label": "Giả lập" }
+  ],
+  "date": "2025-11-03 00:00:00",
+  "image": "https://res.ldrescdn.com/rms/ldplayer/process/img/694dd091f3ed497b8e089f2a6e8357691762153038.png?x-oss-process=image/format,webp/quality,Q_100/resize,w_1024",
+  "content": [
+    {
+      "type": "text",
+      "content": "Chế độ Đấu Giả Lập đề cao tư duy sắp xếp đội hình và thiết lập chiến thuật. Dưới đây là ba sơ đồ tiêu biểu kèm gợi ý thông số để tham khảo."
+    },
+
+    { "type": "title", "content": "Sơ đồ 4-1-2-1-2 (Hẹp)" },
+    {
+      "type": "text",
+      "content": "Thiên về kiểm soát trung lộ và phối hợp tam giác nhanh; phù hợp kiểu chơi giữ bóng, ban bật."
+    },
+    {
+      "type": "text",
+      "content": "Gợi ý thiết lập (tóm lược): Phát động: tốc độ 3, chuyền 1, tâm lý tấn công, chọn vị trí tự do. Tấn công: chuyền 3, tạt 1, sút 3, vị trí tự do. Phòng ngự: sức ép 3, cự ly 2, xông xáo 3, hàng thủ hỗ trợ."
+    },
+
+    {
+      "type": "image",
+      "content": "https://res.ldrescdn.com/rms/ldplayer/process/img/1ba923febad54f9883c6c1d93db7730e1762153038.png?x-oss-process=image/format,webp/quality,Q_100/resize,w_1024"
+    },
+
+    { "type": "title", "content": "Sơ đồ 4-3-3 (Tấn công)" },
+    {
+      "type": "text",
+      "content": "Tối đa hoá tốc độ hai biên, lối đá trực diện; chuyển bóng nhanh ra cánh và xâm nhập khu cấm."
+    },
+    {
+      "type": "text",
+      "content": "Gợi ý thiết lập (tóm lược): Phát động: tốc độ 1, chuyền 1, tâm lý tấn công, vị trí theo chiến thuật. Tấn công: chuyền 1, tạt 1, sút 2, vị trí theo chiến thuật. Phòng ngự: sức ép 3, cự ly 1, xông xáo 2, hàng thủ hỗ trợ."
+    },
+
+    {
+      "type": "image",
+      "content": "https://res.ldrescdn.com/rms/ldplayer/process/img/02e9ab40efcf4854a60916d8fb025b6c1762153038.png?x-oss-process=image/format,webp/quality,Q_100/resize,w_1024"
+    },
+
+
+    { "type": "title", "content": "Sơ đồ 4-2-4 (Tổng lực)" },
+    {
+      "type": "text",
+      "content": "Tập trung quân số cho khâu ghi bàn; mạo hiểm hơn nhưng có thể tạo sức ép cực lớn."
+    },
+    {
+      "type": "text",
+      "content": "Gợi ý thiết lập (tóm lược): Phát động: tốc độ 2, chuyền 1, tâm lý tấn công, vị trí theo chiến thuật. Tấn công: chuyền 1, tạt 1, sút 3, vị trí tự do. Phòng ngự: sức ép 3, cự ly 1, xông xáo 2, hàng thủ hỗ trợ."
+    },
+
+    {
+      "type": "image",
+      "content": "https://res.ldrescdn.com/rms/ldplayer/process/img/694dd091f3ed497b8e089f2a6e8357691762153038.png?x-oss-process=image/format,webp/quality,Q_100/resize,w_1024"
+    },
+
+    {
+      "type": "redirect",
+      "content": {
+        "label": "Xem bài gốc trên LDPlayer",
+        "url": "https://vi.ldplayer.net/blog/huong-dan-thiet-lap-3-so-do-chien-thuat-gia-lap-chuan-nhat-fc-mobile-vn.html"
+      }
+    }
+  ]
+}
