@@ -3,17 +3,32 @@
     {
       "name": "FC Mobile Vietnam (trang của Garena)",
       "platform": "Facebook Group",
-      "link": "https://www.facebook.com/EASFCMOBILEVN"
+      "link": "https://www.facebook.com/groups/1043021520030813",
+      "verified": true
     },
     {
-      "name": "Discord Chiến Thuật",
-      "platform": "Discord",
-      "link": "https://discord.com/invite/example"
+      "name": "EA Sports FC Mobile Vietnam (tick xanh)",
+      "platform": "Facebook Fanpage",
+      "link": "https://www.facebook.com/EASFCMOBILEVN",
+      "verified": true
     },
     {
-      "name": "Zalo Hội Người Chơi",
-      "platform": "Zalo",
-      "link": "https://zalo.me/example"
+      "name": "FC Mobile Việt Nam - Cộng đồng chia sẻ giao lưu",
+      "platform": "Facebook Group",
+      "link": "https://www.facebook.com/groups/420601054769091",
+      "verified": false
+    },
+    {
+      "name": "FC Mobile Garena Việt Nam",
+      "platform": "Facebook Group",
+      "link": "https://www.facebook.com/groups/1535191544543245",
+      "verified": false
+    },
+    {
+      "name": "Garena FC Mobile Việt Nam 🇻🇳 Giao Lưu - Chia Sẻ - Mua Bán Acc ",
+      "platform": "Facebook Group",
+      "link": "https://www.facebook.com/groups/1063310578945273",
+      "verified": false
     }
   ]
 }
