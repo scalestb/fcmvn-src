@@ -1,35 +1,113 @@
-/* Bootstrap core (SCSS) */
+/* assets/styles/main.scss */
+@use "sass:color";
 
-/* Bootstrap Icons via CDN class names (optional local import if needed) */
-/* You can also install and import bootstrap-icons CSS here if preferred */
-/* @import "bootstrap-icons/font/bootstrap-icons.css"; */
+/* ============ Accent & Palette ============ */
+$accent: rgb(3, 152, 85);             // #039855
+$accent-50:  color.mix(white, $accent, 85%);
+$accent-100: color.mix(white, $accent, 70%);
+$accent-200: color.mix(white, $accent, 55%);
+$accent-300: color.mix(white, $accent, 40%);
+$accent-400: color.mix(white, $accent, 25%);
+$accent-500: $accent;
+$accent-600: color.mix(black, $accent, 15%);
+$accent-700: color.mix(black, $accent, 30%);
+$accent-800: color.mix(black, $accent, 45%);
+$accent-900: color.mix(black, $accent, 60%);
+
+/* ============ Dark base ============ */
+$body-bg: #0e1216;             /* nền đen xám */
+$body-color: #e6edf3;          /* chữ sáng vừa đọc */
+$border-color: rgba(255,255,255,.08);
+
+/* ============ Bootstrap theme overrides ============ */
+/* Màu chủ đạo = accent */
+$primary: $accent;
+$success: $accent;
+
+/* Các màu phụ (tông dịu cho dark theme) */
+$secondary: #9aa5b1;
+$info: color.mix(#2dd4bf, $accent, 40%);     /* xanh ngọc ngả accent */
+$warning: #f59e0b;
+$danger:  #ef4444;
+$light:   #1a222e;
+$dark:    #0a0f16;
+
+/* Surfaces */
+$card-bg: #101624;
+$card-border-color: $border-color;
+$list-group-bg: $card-bg;
+$list-group-border-color: $border-color;
+$dropdown-bg: #0f1420;
+$dropdown-color: $body-color;
+
+/* Navbar (dark) */
+$navbar-dark-color: rgba(255,255,255,.85);
+$navbar-dark-hover-color: #fff;
+$navbar-dark-active-color: #fff;
+$navbar-dark-brand-color: #fff;
+$navbar-dark-brand-hover-color: #fff;
+$navbar-dark-toggler-border-color: rgba(255,255,255,.2);
+
+/* Form controls */
+$input-bg: #0c111a;
+$input-color: $body-color;
+$input-border-color: $border-color;
+
+/* Progress, etc. */
+$progress-bg: #1b2534;
+$progress-bar-bg: $accent;
+
+/* ============ Import Bootstrap sau khi override biến ============ */
+@import "bootstrap/scss/bootstrap";
+
+/* ============ CSS variables & utilities bổ sung ============ */
+:root{
+  --bg-deep: #0e1216;      /* nền */
+  --surface: #101624;      /* mặt thẻ */
+  --c-accent: #039855;
+  --c-accent-100: #{$accent-100};
+  --c-accent-200: #{$accent-200};
+  --c-accent-300: #{$accent-300};
+  --c-accent-600: #{$accent-600};
+  --c-accent-700: #{$accent-700};
+}
 
 /* Global tweaks */
 body {
-  background: #0b0f17;
-  color: #e9eef7;
+  background: var(--bg-deep);
+  color: $body-color;
 }
+
 .navbar {
   --bs-navbar-padding-y: .6rem;
 }
+
 footer {
-  color: #6c757d;
+  color: #98a2b3;
 }
+
+/* Cards & lists khớp dark theme */
 .card {
-  background: #0f1522;
-  border-color: rgba(255,255,255,.08);
+  background: $card-bg;
+  border-color: $card-border-color;
 }
 .list-group-item {
-  background: #0f1522;
-  color: #dbe6ff;
-  border-color: rgba(255,255,255,.08);
+  background: $list-group-bg;
+  color: $body-color;
+  border-color: $list-group-border-color;
 }
+
+/* Links dùng accent */
 a {
+  color: var(--c-accent);
   text-decoration: none;
 }
 a:hover {
-  opacity: .9;
+  color: #{color.mix(black, $accent, 10%)};
+  opacity: .95;
 }
+
+/* Section header chấm xanh */
 .section-title {
   display: flex;
   align-items: center;
@@ -40,6 +118,15 @@ a:hover {
   width: .55rem;
   height: .55rem;
   border-radius: 50%;
-  background: #0d6efd;
+  background: var(--c-accent);
   display: inline-block;
 }
+
+/* Accent utilities nhanh */
+.text-accent { color: var(--c-accent) !important; }
+.bg-accent { background-color: var(--c-accent) !important; }
+.border-accent { border-color: var(--c-accent) !important; }
+
+/* Buttons sẽ lấy theo $primary (accent) tự động:
+   .btn.btn-primary => bg = #039855
+*/
