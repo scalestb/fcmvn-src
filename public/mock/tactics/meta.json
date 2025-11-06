@@ -1,60 +1,48 @@
 {
   "meta": [
-    {
-      "formation": "4-2-3-1",
-      "rating": 9,
-      "description": "Cân bằng giữa phòng ngự & tấn công, chuyển trạng thái nhanh."
-    },
-    {
-      "formation": "4-3-3 Holding",
-      "rating": 8,
-      "description": "Kiểm soát tuyến giữa, đánh biên tốc độ."
-    },
-    {
-      "formation": "3-5-2",
-      "rating": 7,
-      "description": "Dày người khu trung tuyến, cần CB chất lượng."
-    }
+    { "formation": "4-2-3-1", "rating": 9, "description": "Cân bằng giữa phòng ngự & tấn công, chuyển trạng thái nhanh." },
+    { "formation": "4-3-3 Holding", "rating": 8, "description": "Kiểm soát tuyến giữa, đánh biên tốc độ." },
+    { "formation": "3-5-2", "rating": 7, "description": "Dày người khu trung tuyến, cần CB chất lượng." }
   ],
   "byPosition": [
     {
       "position": "GK",
       "players": [
-        "Donnarumma",
-        "Ederson",
-        "Courtois"
+        { "id": 1001, "name": "Donnarumma", "image": "https://static.wixstatic.com/media/233dc5_c444dac8225449f4a6eca6334920af39~mv2.png/v1/fill/w_205,h_253,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/20251013_013413.png", "link": "/players/1001" },
+        { "id": 1002, "name": "Ederson",     "image": "https://via.placeholder.com/64x64?text=GK", "link": "/players/1002" },
+        { "id": 1003, "name": "Courtois",    "image": "https://via.placeholder.com/64x64?text=GK", "link": "/players/1003" }
       ]
     },
     {
       "position": "CB",
       "players": [
-        "Van Dijk",
-        "Rüdiger",
-        "Dias"
+        { "id": 2001, "name": "Van Dijk", "image": "https://via.placeholder.com/64x64?text=CB", "link": "/players/2001" },
+        { "id": 2002, "name": "Rüdiger",  "image": "https://via.placeholder.com/64x64?text=CB", "link": "/players/2002" },
+        { "id": 2003, "name": "Dias",     "image": "https://via.placeholder.com/64x64?text=CB", "link": "/players/2003" }
       ]
     },
     {
       "position": "CDM",
       "players": [
-        "Kimmich",
-        "Rodri",
-        "Valverde"
+        { "id": 3001, "name": "Kimmich", "image": "https://via.placeholder.com/64x64?text=CDM", "link": "/players/3001" },
+        { "id": 3002, "name": "Rodri",   "image": "https://via.placeholder.com/64x64?text=CDM", "link": "/players/3002" },
+        { "id": 3003, "name": "Valverde","image": "https://via.placeholder.com/64x64?text=CDM", "link": "/players/3003" }
       ]
     },
     {
       "position": "CAM",
       "players": [
-        "De Bruyne",
-        "Bellingham",
-        "Bernardo"
+        { "id": 4001, "name": "De Bruyne", "image": "https://via.placeholder.com/64x64?text=CAM", "link": "/players/4001" },
+        { "id": 4002, "name": "Bellingham","image": "https://via.placeholder.com/64x64?text=CAM", "link": "/players/4002" },
+        { "id": 4003, "name": "Bernardo",  "image": "https://via.placeholder.com/64x64?text=CAM", "link": "/players/4003" }
       ]
     },
     {
       "position": "ST",
       "players": [
-        "Haaland",
-        "Mbappé",
-        "Kane"
+        { "id": 5001, "name": "Haaland", "image": "https://via.placeholder.com/64x64?text=ST", "link": "/players/5001" },
+        { "id": 5002, "name": "Mbappé",  "image": "https://via.placeholder.com/64x64?text=ST", "link": "/players/5002" },
+        { "id": 5003, "name": "Kane",    "image": "https://via.placeholder.com/64x64?text=ST", "link": "/players/5003" }
       ]
     }
   ]
