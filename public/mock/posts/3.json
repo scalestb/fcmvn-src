@@ -1,0 +1,39 @@
+{
+  "title": "Hướng dẫn nạp FV FC Mobile Việt Nam (Garena)",
+  "tags": [
+    { "key": "napthe",   "label": "Nạp thẻ" },
+    { "key": "fcmobile", "label": "FC Mobile VN" },
+    { "key": "garena",   "label": "Garena" }
+  ],
+  "date": "2025-11-06 19:00:00",
+  "image": "/imgs/posts/2/buoc3.png",
+  "content": [
+    { "type": "title", "content": "Giới thiệu" },
+    { "type": "text",  "content": "Bài viết này hướng dẫn bạn nạp FV cho EA SPORTS FC Mobile phiên bản Việt Nam (Garena) một cách an toàn và nhanh chóng. Bạn sẽ cần UID nhân vật trong game để xác nhận tài khoản trước khi thanh toán." },
+
+    { "type": "title", "content": "Bước 1: Lấy UID trong game" },
+    { "type": "text",  "content": "• Mở EA SPORTS FC Mobile → vào Cài đặt (Settings).\n• Nhấn nút “Sao chép UID”. Mã UID sẽ được lưu vào clipboard của bạn.\n• Lưu ý: UID là mã định danh duy nhất của tài khoản, hãy kiểm tra kỹ độ dài và ký tự để tránh dán nhầm." },
+    { "type": "image", "content": "/imgs/posts/3/buoc1.png" },
+
+    { "type": "title", "content": "Bước 2: Truy cập napthe.vn và dán UID" },
+    { "type": "text",  "content": "• Mở trang chính thức napthe.vn.\n• Chọn mục FC Mobile VN (Garena).\n• Dán UID vừa sao chép vào ô yêu cầu, kiểm tra nickname hiển thị để chắc chắn đúng tài khoản." },
+    { "type": "redirect", "content": { "label": "Mở napthe.vn", "url": "https://napthe.vn" } },
+    { "type": "image", "content": "/imgs/posts/3/buoc2.png" },
+
+    { "type": "title", "content": "Bước 3: Chọn gói và thanh toán" },
+    { "type": "text",  "content": "• Chọn gói FV muốn nạp theo nhu cầu.\n• Chọn phương thức thanh toán phù hợp (thẻ Garena, ví điện tử, ngân hàng… — tuỳ thời điểm hệ thống hỗ trợ).\n• Xác nhận thông tin lần cuối (UID, gói nạp) → Thanh toán.\n• Sau khi hoàn tất, FV thường sẽ được cộng vào tài khoản trong vài phút." },
+    { "type": "image", "content": "/imgs/posts/3/buoc3.png" },
+
+    { "type": "title", "content": "Sự kiện: Nạp thẻ nhận Kaka phiên bản đặc biệt" },
+    { "type": "text",  "content": "Hiện đang có chương trình khuyến mại: nạp thẻ có cơ hội nhận Kaka phiên bản đặc biệt. Thời gian, điều kiện và phần thưởng có thể thay đổi theo thông báo từ Garena. Hãy đọc kỹ thể lệ trên trang sự kiện trước khi tham gia." },
+    { "type": "image", "content": "" },
+
+    { "type": "title", "content": "Lưu ý an toàn" },
+    { "type": "text",  "content": "• Chỉ nạp trên các kênh chính chủ (napthe.vn) để tránh lừa đảo.\n• Kiểm tra đúng UID và nickname trước khi thanh toán.\n• Không chia sẻ mã thẻ/code cho người lạ; cảnh giác các lời mời \"giá rẻ bất thường\".\n• Lưu lại hoá đơn/biên nhận để tiện tra soát khi cần." },
+
+    { "type": "title", "content": "Hỏi đáp nhanh" },
+    { "type": "text",  "content": "• Nạp nhầm UID phải làm sao? → Liên hệ hỗ trợ Garena kèm hoá đơn càng sớm càng tốt.\n• Bao lâu FV vào tài khoản? → Thông thường vài phút, có thể trễ hơn tuỳ phương thức. Nếu quá lâu, hãy gửi ticket hỗ trợ.\n• Có thể nạp hộ người khác? → Được, miễn là bạn có UID chính xác của người cần nạp." },
+
+    { "type": "redirect", "content": { "label": "Trung tâm hỗ trợ Garena", "url": "https://hotro.garena.vn" } }
+  ]
+}
