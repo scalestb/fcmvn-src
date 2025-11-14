@@ -1,0 +1,154 @@
+{
+  "title": "Chiến thuật 4-2-3-1 Meta — Cân bằng & Hiệu quả",
+  "tags": [
+    { "key": "chienthuat", "label": "Chiến thuật" },
+    { "key": "review", "label": "Review" }
+  ],
+  "date": "2025-11-05 19:00:00",
+  "image": "/banners/tactics-hero.jpg",
+  "content": [
+    {
+      "type": "title",
+      "content": "Tổng quan sơ đồ 4-2-3-1"
+    },
+    {
+      "type": "text",
+      "content": "4-2-3-1 là sơ đồ ưu tiên khả năng chuyển trạng thái: hai CDM che chắn trước bộ tứ vệ, bộ ba CAM/LM/RM hỗ trợ kết nối với ST. Điểm mạnh là cân bằng giữa tấn công và phòng ngự, dễ kiểm soát trung tuyến."
+    },
+    {
+      "type": "image",
+      "content": "https://via.placeholder.com/1200x600?text=4-2-3-1+Overview"
+    },
+
+    {
+      "type": "formation",
+      "content": {
+        "title": "4-2-3-1",
+        "position": {
+          "GK": { "GK": 1 },
+          "DF": { "LB": 1, "CB": 2, "RB": 1 },
+          "MF": { "CDM": 2, "LM": 1, "CAM": 1, "RM": 1 },
+          "FW": { "ST": 1 }
+        }
+      }
+    },
+
+    {
+      "type": "title",
+      "content": "Gợi ý nhân sự theo vai trò"
+    },
+    {
+      "type": "players",
+      "content": {
+        "title": "Top CAM phù hợp 4-2-3-1",
+        "players": [
+          {
+            "id": 4001,
+            "name": "De Bruyne",
+            "position": "CAM",
+            "link": "/players/4001",
+            "image": "https://via.placeholder.com/300x380?text=De+Bruyne"
+          },
+          {
+            "id": 4002,
+            "name": "Bellingham",
+            "position": "CAM",
+            "link": "/players/4002",
+            "image": "https://via.placeholder.com/300x380?text=Bellingham"
+          },
+          {
+            "id": 4003,
+            "name": "Bernardo Silva",
+            "position": "CAM",
+            "link": "/players/4003",
+            "image": "https://via.placeholder.com/300x380?text=Bernardo"
+          }
+        ]
+      }
+    },
+    {
+      "type": "players",
+      "content": {
+        "title": "Cặp CDM khuyến nghị",
+        "players": [
+          {
+            "id": 3001,
+            "name": "Rodri",
+            "position": "CDM",
+            "link": "/players/3001",
+            "image": "https://via.placeholder.com/300x380?text=Rodri"
+          },
+          {
+            "id": 3002,
+            "name": "Kimmich",
+            "position": "CDM",
+            "link": "/players/3002",
+            "image": "https://via.placeholder.com/300x380?text=Kimmich"
+          },
+          {
+            "id": 3003,
+            "name": "Valverde",
+            "position": "CDM",
+            "link": "/players/3003",
+            "image": "https://via.placeholder.com/300x380?text=Valverde"
+          }
+        ]
+      }
+    },
+
+    {
+      "type": "title",
+      "content": "Thiết lập chiến thuật (gợi ý)"
+    },
+    {
+      "type": "tactic",
+      "content": {
+        "panel": [
+          {
+            "title": "Phát động tấn công",
+            "description": "Ưu tiên build-up nhanh ở biên, CAM di chuyển vào half-space.",
+            "items": [
+              { "title": "Tốc độ", "type": "slider", "value": 2, "min": 1, "max": 3 },
+              {
+                "title": "Tâm lý",
+                "type": "select",
+                "value": "balanced",
+                "options": [
+                  { "value": "defensive", "label": "Phòng ngự" },
+                  { "value": "balanced",  "label": "Cân bằng"  },
+                  { "value": "attacking", "label": "Tấn công"  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Phòng ngự",
+            "description": "Giữ khối đội hình trung bình, CDM kèm chặt khu trung lộ.",
+            "items": [
+              { "title": "Cự ly đội hình", "type": "slider", "value": 2, "min": 1, "max": 3 },
+              {
+                "title": "Pressing",
+                "type": "select",
+                "value": "balanced",
+                "options": [
+                  { "value": "defensive", "label": "Chủ động lùi" },
+                  { "value": "balanced",  "label": "Cân bằng"     },
+                  { "value": "attacking", "label": "Áp sát cao"   }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "type": "video",
+      "content": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+      "type": "redirect",
+      "content": { "label": "Xem thêm mẹo pressing", "url": "https://example.com/tips-pressing" }
+    }
+  ]
+}

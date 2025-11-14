@@ -1,3 +1,4 @@
+<!-- pages/posts/[id].vue -->
 <script setup lang="ts">
 import HeaderBanner from '~/components/common/HeaderBanner.vue'
 import SectionHeader from '~/components/common/SectionHeader.vue'
@@ -17,25 +18,23 @@ const post = computed<any>(() => data.value || {})
 const tags = computed(() => Array.isArray(post.value?.tags) ? post.value.tags : [])
 const bannerImg = computed(() => post.value?.image || '')
 
-// ==== Utils ====
+// ==== Utils chung ====
 function fmtDate(d?: string) {
   try {
     if (!d) return ''
-    const date = new Date(d.replace(' ', 'T')) // "YYYY-MM-DD HH:mm:ss" -> pseudo ISO
+    const date = new Date(d.replace(' ', 'T'))
     return new Intl.DateTimeFormat('vi-VN', {
       year: 'numeric', month: '2-digit', day: '2-digit',
       hour: '2-digit', minute: '2-digit'
     }).format(date)
   } catch { return d || '' }
 }
-
 function firstTextExcerpt(p: any, max = 160) {
   try {
     const t = (p?.content || []).find((b: any) => b?.type === 'text')?.content || ''
     return String(t).replace(/\s+/g, ' ').trim().slice(0, max)
   } catch { return '' }
 }
-
 const runtime = useRuntimeConfig()
 const appUrl = (runtime.public as any)?.APP_URL || 'http://localhost:2025'
 function absUrl(path?: string) {
@@ -47,10 +46,12 @@ function absUrl(path?: string) {
 function absImage(u?: string) {
   if (!u) return ''
   try {
-    // Nếu là /xxx thì build tuyệt đối theo APP_URL
     if (/^https?:\/\//i.test(u)) return u
     return new URL(u, appUrl).toString()
   } catch { return u }
+}
+function isExternal(link?: string) {
+  return !!link && /^(?:https?:)?\/\//i.test(link)
 }
 
 // ==== SEO mặc định trước khi có data ====
@@ -77,16 +78,12 @@ watchEffect(() => {
     path: route.fullPath,
     image: img
   })
-
-  // Open Graph bổ sung + Twitter + Article
   useSeoMeta({
     ogType: 'article',
     articlePublishedTime: p.date || undefined,
     twitterCard: 'summary_large_image',
     twitterImage: img || undefined
   })
-
-  // JSON-LD Article
   const ld = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -103,8 +100,6 @@ watchEffect(() => {
       children: JSON.stringify(ld)
     }]
   })
-
-  // Cập nhật banner title/subtitle hiển thị
   pageTitle.value = p.title
   pageSubtitle.value = desc
 })
@@ -124,10 +119,69 @@ const ytEmbed = (url: string) => {
   } catch {}
   return ''
 }
+
+/* ============================
+   FORMATION — sân + toạ độ
+   ============================ */
+// Toạ độ mặc định (0..100): left/top theo % trên sân
+const POS_MAP: Record<string, {x:number,y:number}> = {
+  GK:{x:50,y:92},
+  SW:{x:50,y:86},
+  LB:{x:18,y:78}, LFB:{x:18,y:78},
+  'CB-L':{x:42,y:80}, 'CB-R':{x:58,y:80},
+  CB:{x:50,y:80},
+  RB:{x:82,y:78}, RFB:{x:82,y:78},
+
+  'CDM-L':{x:42,y:60}, 'CDM-R':{x:58,y:60}, CDM:{x:50,y:60},
+  'CM-L':{x:45,y:52}, 'CM-R':{x:55,y:52}, CM:{x:50,y:52},
+  CAM:{x:50,y:44},
+
+  LW:{x:20,y:46}, LM:{x:25,y:50},
+  RW:{x:80,y:46}, RM:{x:75,y:50},
+
+  ST:{x:50,y:22},
+}
+
+function expandRoles(positionObj:any){
+  // positionObj ví dụ:
+  // { GK:{GK:1}, DF:{LB:1,CB:2,RB:1}, MF:{CDM:2,CAM:1}, FW:{ST:1} }
+  const out:string[] = []
+  if (!positionObj) return out
+  for (const group of ['GK','DF','MF','FW']){
+    const roles = positionObj[group] || {}
+    for (const role in roles){
+      const count = Number(roles[role]) || 0
+      for (let i=0;i<count;i++){
+        // Đặt nhánh trái/phải nếu có 2 người
+        if (role === 'CB' && count >= 2) out.push(i===0?'CB-L':'CB-R')
+        else if (role === 'CDM' && count >= 2) out.push(i===0?'CDM-L':'CDM-R')
+        else if (role === 'CM' && count >= 2) out.push(i===0?'CM-L':'CM-R')
+        else out.push(role)
+      }
+    }
+  }
+  return out
+}
+function getPos(label:string){
+  return POS_MAP[label] || POS_MAP[label.replace(/\d+$/,'')] || {x:50,y:50}
+}
+
+/* ============================
+   TACTIC — UI giống ảnh
+   ============================ */
+function segCount(val:number, min:number, max:number, steps=4){
+  if (max<=min) return 0
+  const ratio = (val - min) / (max - min)
+  return Math.round(Math.min(Math.max(ratio,0),1) * steps)
+}
+function optionIndex(options:any[] = [], value:any = null){
+  const i = options.findIndex(o => String(o.value) === String(value))
+  return i >= 0 ? i : 0
+}
 </script>
 
 <template>
-  <!-- Banner: lấy ảnh từ post.image (nếu có) -->
+  <!-- Banner -->
   <HeaderBanner
     :title="post?.title || pageTitle"
     :subtitle="pageSubtitle"
@@ -174,28 +228,28 @@ const ytEmbed = (url: string) => {
 
           <!-- image block -->
           <figure v-else-if="b.type === 'image'" class="my-3 content-media">
-  <img
-    :src="b.content"
-    class="img-fluid rounded d-block mx-auto"
-    alt=""
-    loading="lazy"
-    decoding="async"
-  />
-</figure>
+            <img
+              :src="b.content"
+              class="img-fluid rounded d-block mx-auto"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
 
           <!-- video block -->
-<div v-else-if="b.type === 'video'" class="my-3">
-  <div class="ratio ratio-16x9 content-media">
-    <iframe
-      v-if="isYoutube(b.content)"
-      :src="ytEmbed(b.content)"
-      allowfullscreen
-      loading="lazy"
-      referrerpolicy="no-referrer"
-    ></iframe>
-    <video v-else :src="b.content" controls class="w-100 d-block mx-auto"></video>
-  </div>
-</div>
+          <div v-else-if="b.type === 'video'" class="my-3">
+            <div class="ratio ratio-16x9 content-media">
+              <iframe
+                v-if="isYoutube(b.content)"
+                :src="ytEmbed(b.content)"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              ></iframe>
+              <video v-else :src="b.content" controls class="w-100 d-block mx-auto"></video>
+            </div>
+          </div>
 
           <!-- redirect (link) block -->
           <div v-else-if="b.type === 'redirect'" class="my-3">
@@ -203,9 +257,104 @@ const ytEmbed = (url: string) => {
               :href="(b.content && b.content.url) || '#'"
               target="_blank"
               class="btn btn-sm btn-primary"
+              rel="noopener"
             >
               {{ (b.content && b.content.label) || 'Xem liên kết' }}
             </a>
+          </div>
+
+          <!-- formation block — sân + badge vị trí -->
+          <div v-else-if="b.type === 'formation'" class="formation card my-3 overflow-hidden">
+            <div class="formation-head px-3 pt-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <h3 class="h6 m-0">Sơ đồ <span class="text-accent">{{ b.content?.title }}</span></h3>
+              </div>
+            </div>
+
+            <div class="formation-pitch">
+              <!-- khung sân -->
+              <div class="pitch">
+                <!-- các vạch sân đơn giản -->
+                <div class="box box-top"></div>
+                <div class="box box-bottom"></div>
+                <div class="center-line"></div>
+                <div class="center-circle"></div>
+
+                <!-- chấm vị trí -->
+                <template v-for="(label, idx) in expandRoles(b.content?.position)" :key="idx">
+                  <div
+                    class="pos-dot"
+                    :style="{ left: getPos(label).x + '%', top: getPos(label).y + '%' }"
+                  >
+                    {{ label.replace('-L','').replace('-R','') }}
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+
+          <!-- tactic block — giao diện control giống ảnh -->
+          <div v-else-if="b.type === 'tactic'" class="tactic card my-3">
+            <div class="card-body">
+              <h3 class="h6 mb-3">Thiết lập chiến thuật</h3>
+
+              <div
+                v-for="(panel, pi) in b.content?.panel || []"
+                :key="pi"
+                class="tactic-panel mb-3"
+              >
+                <button class="tp-head w-100 text-start" type="button" data-bs-toggle="collapse"
+                        :data-bs-target="`#tp-${pi}`" aria-expanded="true">
+                  <span class="tp-title">{{ panel.title }}</span>
+                  <i class="bi bi-chevron-down ms-auto"></i>
+                </button>
+
+                <div class="collapse show" :id="`tp-${pi}`">
+                  <div class="tp-body">
+                    <p v-if="panel.description" class="small text-muted mb-3">{{ panel.description }}</p>
+
+                    <div v-for="(it, ii) in panel.items || []" :key="ii" class="tp-row">
+                      <div class="tp-label">{{ it.title }}</div>
+
+                      <!-- slider style phân đoạn -->
+                      <div v-if="it.type==='slider'" class="tp-slider">
+                        <button type="button" class="tp-round" disabled>−</button>
+                        <div class="tp-bar">
+                          <span
+                            v-for="s in 4"
+                            :key="s"
+                            class="seg"
+                            :class="{ active: s <= segCount(Number(it.value||0), Number(it.min||0), Number(it.max||3), 4) }"
+                          />
+                        </div>
+                        <button type="button" class="tp-round" disabled>+</button>
+                      </div>
+
+                      <!-- select style với dots + giá trị -->
+                      <div v-else-if="it.type==='select'" class="tp-select">
+                        <button type="button" class="tp-round" disabled>‹</button>
+                        <div class="tp-value">
+                          {{ (it.options || []).find(o=>String(o.value)===String(it.value))?.label || it.value }}
+                          <div class="dots">
+                            <span
+                              v-for="(o, oi) in (it.options || [])"
+                              :key="o.value"
+                              :class="{ on: oi === optionIndex(it.options, it.value) }"
+                            ></span>
+                          </div>
+                        </div>
+                        <button type="button" class="tp-round" disabled>›</button>
+                      </div>
+
+                      <!-- fallback text -->
+                      <div v-else class="tp-text small text-muted">
+                        {{ it.value }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- /each panel -->
+            </div>
           </div>
 
           <!-- fallback -->
@@ -219,25 +368,131 @@ Không hỗ trợ block: {{ b.type }}
 </template>
 
 <style scoped>
-/* Giới hạn chiều rộng media và căn giữa */
-.content-media{
-  width: 100%;
-  max-width: 900px;          /* chỉnh theo ý bạn */
-  margin-left: auto;
-  margin-right: auto;
+/* ======= Media max width ======= */
+.content-media{ width:100%; max-width: 900px; margin:0 auto; }
+.content-media img, .content-media video, .content-media iframe{
+  display:block; margin:0 auto; border-radius:.5rem;
 }
 
-/* Bo góc + block-level để đảm bảo căn giữa */
-.content-media img,
-.content-media video,
-.content-media iframe{
-  display: block;
-  margin: 0 auto;
-  border-radius: .5rem;
+/* ======= Formation (Pitch) ======= */
+.formation-pitch{
+  background:#0b3d0b; /* xanh sân đậm */
+  padding:14px; border-top:1px solid rgba(255,255,255,.06);
+}
+.pitch{
+  position:relative; width:100%; aspect-ratio: 7 / 10;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 2px, transparent 2px 28px),
+    linear-gradient(#115c1a, #0d4c16);
+  border-radius:14px;
+  box-shadow: inset 0 0 0 2px #ffffff40;
+  overflow:hidden;
+}
+/* Vạch sân cơ bản */
+.center-line{
+  position:absolute; left:50%; top:0; bottom:0; width:2px; background:#fff8;
+  transform:translateX(-50%);
+}
+.center-circle{
+  position:absolute; left:50%; top:50%; width:26%; aspect-ratio:1/1;
+  border:2px solid #fff8; border-radius:50%; transform:translate(-50%,-50%);
+  box-shadow: 0 0 0 60px transparent;
+}
+.box{ position:absolute; left:12%; width:76%; height:18%; border:2px solid #fff8; }
+.box-top{ top:6%; }
+.box-bottom{ bottom:6%; }
+
+.pos-dot{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  background:#e11d48; /* đỏ */
+  color:#fff; font-weight:700; font-size:.8rem;
+  padding:.25rem .5rem; border-radius:999px;
+  box-shadow:0 2px 10px rgba(0,0,0,.25);
+  letter-spacing:.2px;
+  user-select:none;
 }
 
-/* Có thể thu hẹp hơn trên màn nhỏ nếu muốn */
+/* ======= Tactic panel (giống ảnh) ======= */
+.tactic .card-body{ padding:1rem; }
+.tactic-panel{ background:#0f141c; border:1px solid rgba(255,255,255,.06); border-radius:.75rem; overflow:hidden; }
+.tp-head{
+  display:flex; align-items:center; gap:.75rem;
+  padding:.75rem 1rem; border:0; background:#0f141c; color:#e6edf3;
+}
+.tp-head .tp-title{ font-weight:600; letter-spacing:.4px; text-transform:uppercase; }
+.tp-head .bi{ opacity:.7; }
+
+/* hàng item */
+.tp-body{ padding: .5rem 1rem 1rem; }
+.tp-row{ display:grid; grid-template-columns: 160px 1fr; gap:12px; align-items:center; padding:.5rem 0; border-top:1px solid rgba(255,255,255,.06); }
+.tp-row:first-child{ border-top:0; }
+.tp-label{ color:#9aa5b1; font-size:.8rem; text-transform:uppercase; }
+
+/* nút tròn – / + / ‹ / › (chỉ trang trí) */
+.tp-round{
+  width:34px; height:34px; border-radius:50%;
+  display:inline-flex; align-items:center; justify-content:center;
+  background:#1a2230; color:#e6edf3;
+  border:2px solid var(--c-accent);
+  font-weight:700; line-height:1; opacity:.9;
+}
+.tp-round:disabled{ opacity:.8; }
+
+/* slider phân đoạn */
+.tp-slider{ display:flex; align-items:center; gap:10px; }
+.tp-bar{
+  flex:1; display:grid; grid-template-columns: repeat(4, 1fr); gap:8px;
+  background:#0e1117; padding:6px; border-radius:.5rem; border:1px solid rgba(255,255,255,.08);
+}
+.tp-bar .seg{
+  display:block; height:10px; border-radius:10px;
+  background:#2b313c;
+}
+.tp-bar .seg.active{ background: var(--c-accent); }
+
+/* select + dot indicator */
+.tp-select{ display:flex; align-items:center; gap:10px; }
+.tp-value{
+  flex:1; text-align:center; font-weight:700; background:#0e1117; border:1px solid rgba(255,255,255,.08);
+  padding:.5rem; border-radius:.5rem; letter-spacing:.4px;
+}
+.tp-value .dots{
+  display:flex; gap:6px; justify-content:center; margin-top:6px;
+}
+.tp-value .dots span{
+  width:8px; height:8px; border-radius:50%; background:#2b313c; display:inline-block;
+}
+.tp-value .dots span.on{ background: var(--c-accent); }
+
+/* ======= Misc ======= */
+.border-subtle{ border:1px solid rgba(255,255,255,.08); }
+
+/* Players grid (nếu có trong post) */
+.player-grid{
+  display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:16px;
+}
+@media (min-width: 992px){
+  .player-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+}
+.player-card{ text-decoration:none; color:inherit; display:block; }
+.player-img{
+  background:#11161f; border-radius:18px; padding:10px; aspect-ratio:3/4;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+  transition: transform .08s ease, box-shadow .2s ease;
+}
+.player-img img{ width:100%; height:100%; object-fit:contain; border-radius:12px; }
+.player-card:hover .player-img{
+  box-shadow: 0 0 0 1px var(--c-accent), 0 6px 20px rgba(3,152,85,.15);
+  transform: translateY(-1px);
+}
+.player-name{ text-align:center; margin-top:.5rem; }
+.player-name .small{ color:#9aa5b1; }
+
+/* Media nhỏ */
 @media (max-width: 576px){
-  .content-media{ max-width: 100%; }
+  .content-media{ max-width:100%; }
+  .tp-row{ grid-template-columns: 120px 1fr; }
 }
 </style>
