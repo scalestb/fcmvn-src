@@ -12,8 +12,8 @@
             <li class="nav-item"><NuxtLink class="nav-link" to="/tactics">Phân tích chiến thuật</NuxtLink></li>
             <li class="nav-item"><NuxtLink class="nav-link" to="/guides">Hướng dẫn & thủ thuật</NuxtLink></li>
             <li class="nav-item"><NuxtLink class="nav-link" to="/community">Cộng đồng</NuxtLink></li>
-            <li class="nav-item"><NuxtLink class="nav-link" to="/lookup">Tra cứu</NuxtLink></li>
-            <li class="nav-item"><NuxtLink class="nav-link" to="/hof">Bảng danh vọng</NuxtLink></li>
+            <!-- <li class="nav-item"><NuxtLink class="nav-link" to="/lookup">Tra cứu</NuxtLink></li> -->
+            <!-- <li class="nav-item"><NuxtLink class="nav-link" to="/hof">Bảng danh vọng</NuxtLink></li> -->
           </ul>
         </div>
       </div>

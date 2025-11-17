@@ -1,4 +1,5 @@
 {
+  "src" : "https://www.fcmobileforum.com/top-10/gks",
   "meta": [
     { "formation": "4-2-3-1", "rating": 9, "description": "Cân bằng giữa phòng ngự & tấn công, chuyển trạng thái nhanh." },
     { "formation": "4-3-3 Holding", "rating": 8, "description": "Kiểm soát tuyến giữa, đánh biên tốc độ." },
@@ -8,9 +9,9 @@
     {
       "position": "GK",
       "players": [
-        { "id": 1001, "name": "Donnarumma", "image": "https://static.wixstatic.com/media/233dc5_c444dac8225449f4a6eca6334920af39~mv2.png/v1/fill/w_205,h_253,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/20251013_013413.png", "link": "/players/1001" },
-        { "id": 1002, "name": "Ederson",     "image": "https://via.placeholder.com/64x64?text=GK", "link": "/players/1002" },
-        { "id": 1003, "name": "Courtois",    "image": "https://via.placeholder.com/64x64?text=GK", "link": "/players/1003" }
+        { "id": 1001, "name": "Donnarumma", "image": "https://static.wixstatic.com/media/a7f17b_f34d62c0873c42a78d36b93e7c6c61ff~mv2.png", "link": "/players/1001" },
+        { "id": 1002, "name": "M. Savic",     "image": "https://static.wixstatic.com/media/54a672_0f1a8238895c498ca67f605a5c2797a4~mv2.png", "link": "/players/1002" },
+        { "id": 1003, "name": "Lev Yashin",    "image": "https://static.wixstatic.com/media/a7f17b_92e840011d9448669850c2a8cc35f0f3~mv2.png", "link": "/players/1003" }
       ]
     },
     {
@@ -47,3 +48,4 @@
     }
   ]
 }
+

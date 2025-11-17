@@ -74,8 +74,8 @@ const isInternal = (url?: string) => /^\/(?!\/)/.test(url || '')
               <NuxtLink to="/tactics" class="btn btn-outline-primary btn-sm">Meta & Chiến thuật</NuxtLink>
               <NuxtLink to="/guides" class="btn btn-outline-primary btn-sm">Hướng dẫn</NuxtLink>
               <NuxtLink to="/community" class="btn btn-outline-primary btn-sm">Cộng đồng</NuxtLink>
-              <NuxtLink to="/lookup" class="btn btn-outline-primary btn-sm">Tra cứu</NuxtLink>
-              <NuxtLink to="/hof" class="btn btn-outline-primary btn-sm">Bảng danh vọng</NuxtLink>
+              <!-- <NuxtLink to="/lookup" class="btn btn-outline-primary btn-sm">Tra cứu</NuxtLink> -->
+              <!-- <NuxtLink to="/hof" class="btn btn-outline-primary btn-sm">Bảng danh vọng</NuxtLink> -->
             </div>
           </div>
         </div>
