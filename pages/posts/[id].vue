@@ -144,7 +144,7 @@ const POS_MAP: Record<string, {x:number,y:number}> = {
 
 function expandRoles(positionObj:any){
   // positionObj ví dụ:
-  // { GK:{GK:1}, DF:{LB:1,CB:2,RB:1}, MF:{CDM:2,CAM:1}, FW:{ST:1} }
+  // { GK:{GK:1}, DF:{LB:1,CB:2,RB:1}, MF:{CDM:2,LM:1,CAM:1,RM:1}, FW:{ST:1} }
   const out:string[] = []
   if (!positionObj) return out
   for (const group of ['GK','DF','MF','FW']){
@@ -263,32 +263,80 @@ function optionIndex(options:any[] = [], value:any = null){
             </a>
           </div>
 
-          <!-- formation block — sân + badge vị trí -->
-          <div v-else-if="b.type === 'formation'" class="formation card my-3 overflow-hidden">
-            <div class="formation-head px-3 pt-3">
-              <div class="d-flex align-items-center justify-content-between">
-                <h3 class="h6 m-0">Sơ đồ <span class="text-accent">{{ b.content?.title }}</span></h3>
-              </div>
+          <!-- formation block — SÂN TO, FULL WIDTH -->
+          <div v-else-if="b.type === 'formation'" class="formation-block my-4">
+            <div class="formation-title">
+              Sơ đồ
+              <span class="text-accent fw-bold ms-1">
+                {{ b.content?.title || '—' }}
+              </span>
             </div>
 
-            <div class="formation-pitch">
-              <!-- khung sân -->
-              <div class="pitch">
-                <!-- các vạch sân đơn giản -->
-                <div class="box box-top"></div>
-                <div class="box box-bottom"></div>
-                <div class="center-line"></div>
-                <div class="center-circle"></div>
+            <div class="formation-wrapper">
+              <div class="formation-pitch">
+                <div class="pitch">
+                  <!-- Vạch sân -->
+                  <div class="box box-top"></div>
+                  <div class="box box-bottom"></div>
+                  <div class="center-line"></div>
+                  <div class="center-circle"></div>
 
-                <!-- chấm vị trí -->
-                <template v-for="(label, idx) in expandRoles(b.content?.position)" :key="idx">
-                  <div
-                    class="pos-dot"
-                    :style="{ left: getPos(label).x + '%', top: getPos(label).y + '%' }"
+                  <!-- Cầu thủ -->
+                  <template
+                    v-for="(label, idx) in expandRoles(b.content?.position)"
+                    :key="idx"
                   >
-                    {{ label.replace('-L','').replace('-R','') }}
+                    <div
+                      class="pos-dot"
+                      :style="{ left: getPos(label).x + '%', top: getPos(label).y + '%' }"
+                    >
+                      {{ label.replace('-L','').replace('-R','') }}
+                    </div>
+                  </template>
+
+                  <!-- Code sơ đồ ở góc sân -->
+                  <div v-if="b.content?.title" class="formation-code-on-pitch">
+                    {{ b.content.title }}
                   </div>
-                </template>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- players block — danh sách cầu thủ gợi ý -->
+          <div
+            v-else-if="b.type === 'players'"
+            class="players card my-3 border-subtle"
+          >
+            <div class="card-body">
+              <h3 class="h6 mb-3">
+                {{ b.content?.title || 'Danh sách cầu thủ' }}
+              </h3>
+
+              <div class="player-grid">
+                <component
+                  v-for="p in (b.content?.players || [])"
+                  :key="p.id || p.link || p.name"
+                  :is="isExternal(p.link) ? 'a' : 'NuxtLink'"
+                  :href="isExternal(p.link) ? p.link : undefined"
+                  :to="!isExternal(p.link) ? p.link : undefined"
+                  class="player-card"
+                  :target="isExternal(p.link) ? '_blank' : undefined"
+                  rel="noopener"
+                >
+                  <div class="player-img">
+                    <img
+                      :src="p.image"
+                      :alt="p.name"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div class="player-name">
+                    <div class="fw-semibold">{{ p.name }}</div>
+                    <div class="small text-uppercase">{{ p.position }}</div>
+                  </div>
+                </component>
               </div>
             </div>
           </div>
@@ -374,21 +422,53 @@ Không hỗ trợ block: {{ b.type }}
   display:block; margin:0 auto; border-radius:.5rem;
 }
 
-/* ======= Formation (Pitch) ======= */
-.formation-pitch{
-  background:#0b3d0b; /* xanh sân đậm */
-  padding:14px; border-top:1px solid rgba(255,255,255,.06);
+/* ======= Formation (Pitch) – sân to, full width ======= */
+.formation-block{
+  width: 100%;
 }
+
+/* tiêu đề ngay trên sân */
+.formation-title{
+  font-size: .95rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: .75rem;
+}
+
+/* khung bọc sân */
+.formation-wrapper{
+  width: 100%;
+  max-width: 720px;         /* kích thước sân tối đa */
+  margin: 0 auto;
+  border-radius: 1rem;
+  padding: 14px 16px 18px;
+  background: radial-gradient(circle at top, #166534 0, #052e16 55%, #020617 100%);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+/* sân dọc giống hình mẫu */
+.formation-pitch{
+  width: 100%;
+}
+
 .pitch{
-  position:relative; width:100%; aspect-ratio: 7 / 10;
+  position:relative;
+  width:100%;
+  aspect-ratio: 3 / 4;      /* sân dọc; y 0..100 của POS_MAP vẫn chuẩn */
   background:
-    repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 2px, transparent 2px 28px),
-    linear-gradient(#115c1a, #0d4c16);
-  border-radius:14px;
+    repeating-linear-gradient(
+      180deg,
+      rgba(255,255,255,.06) 0 2px,
+      transparent 2px 38px
+    ),
+    linear-gradient(#15803d,#166534);
+  border-radius: 18px;
   box-shadow: inset 0 0 0 2px #ffffff40;
   overflow:hidden;
 }
-/* Vạch sân cơ bản */
+
+/* Đường sân */
 .center-line{
   position:absolute; left:50%; top:0; bottom:0; width:2px; background:#fff8;
   transform:translateX(-50%);
@@ -396,21 +476,55 @@ Không hỗ trợ block: {{ b.type }}
 .center-circle{
   position:absolute; left:50%; top:50%; width:26%; aspect-ratio:1/1;
   border:2px solid #fff8; border-radius:50%; transform:translate(-50%,-50%);
-  box-shadow: 0 0 0 60px transparent;
 }
 .box{ position:absolute; left:12%; width:76%; height:18%; border:2px solid #fff8; }
 .box-top{ top:6%; }
 .box-bottom{ bottom:6%; }
 
+/* Cầu thủ – vòng tròn lớn, dễ nhìn */
 .pos-dot{
   position:absolute;
   transform:translate(-50%,-50%);
-  background:#e11d48; /* đỏ */
-  color:#fff; font-weight:700; font-size:.8rem;
-  padding:.25rem .5rem; border-radius:999px;
-  box-shadow:0 2px 10px rgba(0,0,0,.25);
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:#e11d48;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-weight:700;
+  font-size:.82rem;
+  box-shadow:0 2px 12px rgba(0,0,0,.35);
   letter-spacing:.2px;
   user-select:none;
+}
+
+/* code sơ đồ ở góc sân */
+.formation-code-on-pitch{
+  position:absolute;
+  left:14px;
+  bottom:10px;
+  font-weight:700;
+  font-size:.95rem;
+  color:#fff;
+  text-shadow:0 0 4px rgba(0,0,0,.7);
+}
+
+/* Mobile: co nhỏ nhưng vẫn chiếm full hàng */
+@media (max-width: 576px){
+  .formation-wrapper{
+    max-width:100%;
+    padding:10px 10px 12px;
+  }
+  .pitch{
+    border-radius: 14px;
+  }
+  .pos-dot{
+    width:40px;
+    height:40px;
+    font-size:.7rem;
+  }
 }
 
 /* ======= Tactic panel (giống ảnh) ======= */
