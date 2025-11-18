@@ -364,19 +364,28 @@ function optionIndex(options:any[] = [], value:any = null){
                     <div v-for="(it, ii) in panel.items || []" :key="ii" class="tp-row">
                       <div class="tp-label">{{ it.title }}</div>
 
-                      <!-- slider style phân đoạn -->
-                      <div v-if="it.type==='slider'" class="tp-slider">
+                      <!-- slider style phân đoạn (3 nấc) -->
+                      <div v-if="it.type === 'slider'" class="tp-slider">
                         <button type="button" class="tp-round" disabled>−</button>
                         <div class="tp-bar">
                           <span
-                            v-for="s in 4"
+                            v-for="s in 3"
                             :key="s"
                             class="seg"
-                            :class="{ active: s <= segCount(Number(it.value||0), Number(it.min||0), Number(it.max||3), 4) }"
+                            :class="{
+                              active: s <= segCount(
+                                Number(it.value || 0),
+                                Number(it.min || 0),
+                                Number(it.max || 3),
+                                3
+                              )
+                            }"
                           />
                         </div>
                         <button type="button" class="tp-round" disabled>+</button>
                       </div>
+
+
 
                       <!-- select style với dots + giá trị -->
                       <div v-else-if="it.type==='select'" class="tp-select">
@@ -553,10 +562,10 @@ Không hỗ trợ block: {{ b.type }}
 }
 .tp-round:disabled{ opacity:.8; }
 
-/* slider phân đoạn */
+/* slider phân đoạn (3 nấc) */
 .tp-slider{ display:flex; align-items:center; gap:10px; }
 .tp-bar{
-  flex:1; display:grid; grid-template-columns: repeat(4, 1fr); gap:8px;
+  flex:1; display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;
   background:#0e1117; padding:6px; border-radius:.5rem; border:1px solid rgba(255,255,255,.08);
 }
 .tp-bar .seg{
@@ -564,6 +573,7 @@ Không hỗ trợ block: {{ b.type }}
   background:#2b313c;
 }
 .tp-bar .seg.active{ background: var(--c-accent); }
+
 
 /* select + dot indicator */
 .tp-select{ display:flex; align-items:center; gap:10px; }

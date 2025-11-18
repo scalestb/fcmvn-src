@@ -1,51 +1,162 @@
 {
-  "src" : "https://www.fcmobileforum.com/top-10/gks",
-  "meta": [
-    { "formation": "4-2-3-1", "rating": 9, "description": "Cân bằng giữa phòng ngự & tấn công, chuyển trạng thái nhanh." },
-    { "formation": "4-3-3 Holding", "rating": 8, "description": "Kiểm soát tuyến giữa, đánh biên tốc độ." },
-    { "formation": "3-5-2", "rating": 7, "description": "Dày người khu trung tuyến, cần CB chất lượng." }
+  "src": "https://www.fcmobileforum.com/top-10/gks",
+  "tactics": [
+    {
+      "title": "Meta hiện tại",
+      "list": [
+        {
+          "formation": "4-2-3-1",
+          "link": "/posts/2",
+          "description": "Cân bằng giữa phòng ngự & tấn công, chuyển trạng thái nhanh."
+        },
+        {
+          "formation": "4-3-3 Holding",
+          "link": "/posts/2",
+          "description": "Kiểm soát tuyến giữa, đánh biên tốc độ."
+        },
+        {
+          "formation": "3-5-2",
+          "link": "/posts/2",
+          "description": "Dày người khu trung tuyến, cần CB chất lượng."
+        }
+      ]
+    },
+    {
+      "title": "Chuyên thủ",
+      "list": [
+        {
+          "formation": "4-2-3-1",
+          "link": "/posts/2",
+          "description": "Cân bằng giữa phòng ngự & tấn công, chuyển trạng thái nhanh."
+        },
+        {
+          "formation": "4-3-3 Holding",
+          "link": "/posts/2",
+          "description": "Kiểm soát tuyến giữa, đánh biên tốc độ."
+        },
+        {
+          "formation": "3-5-2",
+          "link": "/posts/2",
+          "description": "Dày người khu trung tuyến, cần CB chất lượng."
+        }
+      ]
+    }
   ],
   "byPosition": [
     {
       "position": "GK",
       "players": [
-        { "id": 1001, "name": "Donnarumma", "image": "https://static.wixstatic.com/media/a7f17b_f34d62c0873c42a78d36b93e7c6c61ff~mv2.png", "link": "/players/1001" },
-        { "id": 1002, "name": "M. Savic",     "image": "https://static.wixstatic.com/media/54a672_0f1a8238895c498ca67f605a5c2797a4~mv2.png", "link": "/players/1002" },
-        { "id": 1003, "name": "Lev Yashin",    "image": "https://static.wixstatic.com/media/a7f17b_92e840011d9448669850c2a8cc35f0f3~mv2.png", "link": "/players/1003" }
+        {
+          "id": 1001,
+          "name": "Donnarumma",
+          "image": "https://static.wixstatic.com/media/a7f17b_f34d62c0873c42a78d36b93e7c6c61ff~mv2.png",
+          "link": "/players/1001"
+        },
+        {
+          "id": 1002,
+          "name": "M. Savic",
+          "image": "https://static.wixstatic.com/media/54a672_0f1a8238895c498ca67f605a5c2797a4~mv2.png",
+          "link": "/players/1002"
+        },
+        {
+          "id": 1003,
+          "name": "Lev Yashin",
+          "image": "https://static.wixstatic.com/media/a7f17b_92e840011d9448669850c2a8cc35f0f3~mv2.png",
+          "link": "/players/1003"
+        }
       ]
     },
     {
       "position": "CB",
       "players": [
-        { "id": 2001, "name": "Van Dijk", "image": "https://via.placeholder.com/64x64?text=CB", "link": "/players/2001" },
-        { "id": 2002, "name": "Rüdiger",  "image": "https://via.placeholder.com/64x64?text=CB", "link": "/players/2002" },
-        { "id": 2003, "name": "Dias",     "image": "https://via.placeholder.com/64x64?text=CB", "link": "/players/2003" }
+        {
+          "id": 2001,
+          "name": "Lucio",
+          "image": "https://static.wixstatic.com/media/233dc5_44d4b97da1524275b946f23f1389a5fd~mv2.png/v1/fill/w_259,h_259,al_c,lg_1,q_85,enc_avif,quality_auto/L%C3%BAcio_fc25_download.png",
+          "link": "/players/2001"
+        },
+        {
+          "id": 2002,
+          "name": "Stam",
+          "image": "https://static.wixstatic.com/media/a7f17b_b1e1f2c0620144319ab6267c263933ac~mv2.png/v1/fill/w_259,h_259,al_c,lg_1,q_85,enc_avif,quality_auto/custom_Stam_fc24_download_a91thr9k99.png",
+          "link": "/players/2002"
+        },
+        {
+          "id": 2003,
+          "name": "Thuram",
+          "image": "https://static.wixstatic.com/media/54a672_157639e26bd84451be40c9354057bd53~mv2.png/v1/fill/w_259,h_259,al_c,lg_1,q_85,enc_avif,quality_auto/custom_Thuram_fc24_download_eppwld69iia.png",
+          "link": "/players/2003"
+        }
       ]
     },
     {
-      "position": "CDM",
+      "position": "CM",
       "players": [
-        { "id": 3001, "name": "Kimmich", "image": "https://via.placeholder.com/64x64?text=CDM", "link": "/players/3001" },
-        { "id": 3002, "name": "Rodri",   "image": "https://via.placeholder.com/64x64?text=CDM", "link": "/players/3002" },
-        { "id": 3003, "name": "Valverde","image": "https://via.placeholder.com/64x64?text=CDM", "link": "/players/3003" }
+        {
+          "id": 3001,
+          "name": "Zidane",
+          "image": "https://static.wixstatic.com/media/a7f17b_946db6405c0a48c9bcb35a3b81d94ab6~mv2.png/v1/fill/w_259,h_259,al_c,lg_1,q_85,enc_avif,quality_auto/Zidane_fc25_download.png",
+          "link": "/players/3001"
+        },
+        {
+          "id": 3002,
+          "name": "Kroos",
+          "image": "https://static.wixstatic.com/media/a7f17b_1480394a1f5e40b694fe79f1027dc61c~mv2.png/v1/fill/w_259,h_259,al_c,lg_1,q_85,enc_avif,quality_auto/custom_Kroos_fc24_download_62pp1071lti.png",
+          "link": "/players/3002"
+        },
+        {
+          "id": 3003,
+          "name": "Vieira",
+          "image": "https://static.wixstatic.com/media/a7f17b_d69e13fb85ec41d2bbc6e5ea52490623~mv2.png/v1/fill/w_259,h_259,al_c,lg_1,q_85,enc_avif,quality_auto/custom_Vieira_fc24_download_8dsxq85258e.png",
+          "link": "/players/3003"
+        }
       ]
     },
     {
       "position": "CAM",
       "players": [
-        { "id": 4001, "name": "De Bruyne", "image": "https://via.placeholder.com/64x64?text=CAM", "link": "/players/4001" },
-        { "id": 4002, "name": "Bellingham","image": "https://via.placeholder.com/64x64?text=CAM", "link": "/players/4002" },
-        { "id": 4003, "name": "Bernardo",  "image": "https://via.placeholder.com/64x64?text=CAM", "link": "/players/4003" }
+        {
+          "id": 4001,
+          "name": "Charlton",
+          "image": "https://static.wixstatic.com/media/a7f17b_f381d91995d04ba28bab25632f91ed0a~mv2.png/v1/fill/w_259,h_259,al_c,lg_1,q_85,enc_avif,quality_auto/Charlton_fc25_download.png",
+          "link": "/players/4001"
+        },
+        {
+          "id": 4002,
+          "name": "Bellingham",
+          "image": "https://static.wixstatic.com/media/a7f17b_39e79cd701e0495fbab3a8d1bdd44ebf~mv2.png/v1/fill/w_259,h_259,al_c,lg_1,q_85,enc_avif,quality_auto/custom_Bellingham_fc24_download_7y22f2yrojl.png",
+          "link": "/players/4002"
+        },
+        {
+          "id": 4003,
+          "name": "Baggio",
+          "image": "https://static.wixstatic.com/media/a7f17b_6918ddedf40b465c87ac775663e5417c~mv2.png/v1/fill/w_259,h_259,al_c,lg_1,q_85,enc_avif,quality_auto/Baggio_fc25_download.png",
+          "link": "/players/4003"
+        }
       ]
     },
     {
       "position": "ST",
       "players": [
-        { "id": 5001, "name": "Haaland", "image": "https://via.placeholder.com/64x64?text=ST", "link": "/players/5001" },
-        { "id": 5002, "name": "Mbappé",  "image": "https://via.placeholder.com/64x64?text=ST", "link": "/players/5002" },
-        { "id": 5003, "name": "Kane",    "image": "https://via.placeholder.com/64x64?text=ST", "link": "/players/5003" }
+        {
+          "id": 5001,
+          "name": "Eusebio",
+          "image": "https://static.wixstatic.com/media/a7f17b_01ec7dd035a34d93b980978aee0c733f~mv2.png/v1/fill/w_259,h_259,al_c,lg_1,q_85,enc_avif,quality_auto/Eus%C3%A9bio_fc25_download.png",
+          "link": "/players/5001"
+        },
+        {
+          "id": 5002,
+          "name": "Henry",
+          "image": "https://static.wixstatic.com/media/a7f17b_5a94cc5db5f3451a9b4eff97c7c2b4d3~mv2.png/v1/fill/w_259,h_259,al_c,lg_1,q_85,enc_avif,quality_auto/custom_Henry_fc24_download_rd69cd9dgll.png",
+          "link": "/players/5002"
+        },
+        {
+          "id": 5003,
+          "name": "Van Basten",
+          "image": "https://static.wixstatic.com/media/54a672_a62f497205e0422a9c83043f31495edb~mv2.png/v1/fill/w_259,h_259,al_c,lg_1,q_85,enc_avif,quality_auto/custom_van%20Basten_fc24_download_vwqpk9weroi.png",
+          "link": "/players/5003"
+        }
       ]
     }
   ]
 }
-
